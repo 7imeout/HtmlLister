@@ -22,12 +22,22 @@ public class FilterHtml {
       String tempLine = "";
       String dirTitle = "";
       String titleFiller = "";
-      File original = new File(args[0]);
+      File original = null;
       File filtered = null;
       int numHtmls = 0;
       int dotIndex = 0;
       
       System.out.println("\nFiltering Started   : Java core running!");
+      
+      if (args.length == 0) {
+         System.out.print("Java core error     : ");
+         System.out.println("Text file to process not specified.");
+         System.out.println("\nExiting!\n");
+         System.exit(1);
+      }
+      else {
+         original = new File(args[0]);
+      }
 
       appendHeader(VERSION_NUM);
 
